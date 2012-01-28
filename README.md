@@ -1,4 +1,5 @@
-# Crawl errors
+# Crawl errors [![Build Status](https://secure.travis-ci.org/ekampp/crawl_errors.png)](http://travis-ci.org/ekampp/crawl_errors)
+
 
 This is a simple rack application that crawls through a website on a domain, reporting the links it visits along the way.
 
