@@ -1,5 +1,3 @@
-require 'bundler'
 require 'rspec/core/rake_task'
-
-desc "Run rspec tests"
+desc 'Default: run specs.'
 task :default => :spec
