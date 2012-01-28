@@ -1,3 +1,6 @@
-require 'rspec/core/rake_task'
-desc 'Default: run specs.'
-task :default => :spec
+require "bundler/gem_tasks"
+
+desc "Default rake task"
+task :default do
+  puts "Default rake task.."
+end
