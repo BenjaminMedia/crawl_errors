@@ -72,6 +72,6 @@ class CrawlErrors
   end
 
   def log line
-    system "[#{Time.now.to_s}] echo \"#{line}\" >> #{@log}" if @log
+    system "echo \"#{line}\" >> #{@log}" if @log
   end
 end
