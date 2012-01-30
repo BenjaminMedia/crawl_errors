@@ -21,7 +21,9 @@ If you need to log the output of the crawl to an file for later use this can be 
 
     ./crawl_errors.rb http://example.com --log log.txt
 
-This will log the entire crawl into the `log.txt` file.
+This will log the entire crawl into the `log.txt` file. You can use this in conjunction with the `--only-log-errors` flag that will allow you to view the entire outpu on screen, but only log the errors to the log.
+
+    ./crawl_errors.rb http://example.com --log log.txt --only-log-errors
 
 ## Limitations
 
