@@ -7,7 +7,7 @@ invalid_args = !uri.is_a?(URI::HTTP)
 
 if invalid_args || ARGV.include?('--help') || ARGV.include?('-h')
   $stderr.puts("Error: URL must be a fully qualified HTTP URL (including protocol).") if invalid_args
-  $stderr.puts("Usage: #{$0} <url> [-h|--help] [--report-errors-only] [--log FILE]")
+  $stderr.puts("Usage: #{$0} <url> [-h|--help] [--report-errors-only] [--log FILE] [--only-log-errors]")
   exit 127
 end
 
@@ -20,4 +20,5 @@ if ARGV.include?('--log')
     app.log = file
   end
 end
+app.only_log_errors = ARGV.include?('--only-log-errors')
 app.run

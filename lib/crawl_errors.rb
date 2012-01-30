@@ -7,6 +7,7 @@ require 'net/http'
 class CrawlErrors
   attr_accessor :report_errors_only
   attr_accessor :log
+  attr_accessor :only_log_errors
 
   def initialize(origin_uri)
     @origin_uri = origin_uri
@@ -67,13 +68,13 @@ class CrawlErrors
 
   def report_success uri
     line = "ok".ljust(10).color(:green).bright + uri.to_s
-    log line
+    log line unless @only_log_errors
     $stdout.puts(line) unless @report_errors_only
   end
 
   def report_redirect uri, new_uri
     line = "redirect".ljust(10).color(:yellow) + "#{uri} => #{new_uri}"
-    log line
+    log line unless @only_log_errors
     $stdout.puts(line) unless @report_errors_only
   end
 
