@@ -17,6 +17,12 @@ If you want the crawler to only repport actual errors (not 200 OK) you should pa
 
     ./crawl_errors.rb http://example.com --repport-errors-only
 
+If you need to log the output of the crawl to an file for later use this can be done with the `--log FILE` flag.
+
+    ./crawl_errors.rb http://example.com --log log.txt
+
+This will log the entire crawl into the `log.txt` file.
+
 ## Limitations
 
 For now it only performs GET requests, and it doesn't adhere to the rel-nofollow rules. This is something that could be expanded on in later versions.
