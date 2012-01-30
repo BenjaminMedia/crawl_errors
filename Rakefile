@@ -1,6 +1,4 @@
 require 'rspec/core/rake_task'
-
+RSpec::Core::RakeTask.new(:spec)
 desc 'Default: run specs.'
-task :default do
-  puts "Running default rake task.."
-end
+task :default => :spec
