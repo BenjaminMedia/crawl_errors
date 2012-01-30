@@ -13,5 +13,8 @@ end
 
 app = CrawlErrors.new(uri)
 app.report_errors_only = ARGV.include?('--report-errors-only')
-system "touch #{log.txt}" && app.log = "log.txt" if ARGV.include?('--log-errors')
+if ARGV.include?('--log-errors')
+  system "touch log.txt"
+  app.log = 'log.txt'
+end
 app.run
