@@ -7,10 +7,17 @@ invalid_args = !uri.is_a?(URI::HTTP)
 
 if invalid_args || ARGV.include?('--help') || ARGV.include?('-h')
   $stderr.puts("Error: URL must be a fully qualified HTTP URL (including protocol).") if invalid_args
-  $stderr.puts("Usage: #{$0} <url> [-h|--help] [--report-errors-only]")
+  $stderr.puts("Usage: #{$0} <url> [-h|--help] [--report-errors-only] [--log FILE]")
   exit 127
 end
 
 app = CrawlErrors.new(uri)
 app.report_errors_only = ARGV.include?('--report-errors-only')
+if ARGV.include?('--log')
+  file = ARGV[ARGV.index('--log')+1]
+  if file
+    system "touch #{file}"
+    app.log = file
+  end
+end
 app.run
