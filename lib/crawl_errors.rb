@@ -49,9 +49,7 @@ class CrawlErrors
     page = Nokogiri::HTML(body)
     page.css('a').each do |a|
       url = origin.merge(URI.parse(a['href'])) rescue nil
-      if url
-        @queue << url if should_crawl?(url)
-      end
+      @queue << url if url && should_crawl?(url)
     end
   end
 
