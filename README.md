@@ -17,13 +17,9 @@ If you want the crawler to only repport actual errors (not 200 OK) you should pa
 
     ./crawl_errors.rb http://example.com --repport-errors-only
 
-If you need to log the output of the crawl to an file for later use this can be done with the `--log FILE` flag.
+If you need to log the error output of the crawl to the `log.txt` file for later use this can be done with the `--log-errors` flag.
 
-    ./crawl_errors.rb http://example.com --log log.txt
-
-This will log the entire crawl into the `log.txt` file. You can use this in conjunction with the `--only-log-errors` flag that will allow you to view the entire outpu on screen, but only log the errors to the log.
-
-    ./crawl_errors.rb http://example.com --log log.txt --only-log-errors
+    ./crawl_errors.rb http://example.com --log-errors
 
 ## Limitations
 
